@@ -23,7 +23,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-7">
           <div className="text-3xl cursor-pointer">
             <FaRegCircleUser />
           </div>
@@ -34,6 +34,12 @@ const Header = () => {
             </span>
             
             <p className="absolute flex items-center justify-center w-5 h-5 text-sm text-white bg-red-600 rounded-full bottom-3 left-4">0</p>
+          </div>
+
+          <div>
+            <button className="px-3 py-1 text-white bg-red-600 rounded-full hover:bg-red-700">
+              Login
+            </button>
           </div>
         </div>
       </div>
