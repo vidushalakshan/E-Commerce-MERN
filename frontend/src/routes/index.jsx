@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import ForgotPassword from "../pages/ForgotPassword";
+import SignUp from "../pages/SignUp";
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/fogot-password" element={<ForgotPassword />} />
+        <Route path="/sign-up" element={<SignUp />} />
       </Route>
     </Routes>
   );
