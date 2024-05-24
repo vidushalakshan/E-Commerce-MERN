@@ -1,6 +1,7 @@
 import React from "react";
 import { loginIcon } from "../assest";
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -31,6 +32,10 @@ const Login = () => {
                   className="w-full h-full bg-transparent outline-none"
                 />
               </div>
+
+              <Link to={'/fogot-password'} className="text-[14px] ml-auto block w-fit underline hover:text-red-600  ">
+                Forgot Password
+              </Link>
             </div>
 
             <button
