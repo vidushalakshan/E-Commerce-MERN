@@ -3,14 +3,16 @@ import { logo } from "../assest";
 import { HiOutlineSearch } from "react-icons/hi";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Login from "../pages/Login";
 
 const Header = () => {
   return (
-    <header className="h-16 shadow-md">
+    <header className="h-16 bg-white shadow-md">
       <div className="container flex items-center justify-between h-full px-4 mx-auto">
-        <div>
+        <Link to={'/'}>
           <img src={logo} alt="Nav Logo" className="w-[135px] h-[90px]" />
-        </div>
+        </Link>
 
         <div className="hidden w-full max-w-sm pl-2 border rounded-full lg:flex justinfy-between items-starts-center focus-within:shadow">
           <input
@@ -37,9 +39,9 @@ const Header = () => {
           </div>
 
           <div>
-            <button className="px-3 py-1 text-white bg-red-600 rounded-full hover:bg-red-700">
+            <Link to={'/login'} className="px-3 py-1 text-white bg-red-600 rounded-full hover:bg-red-700">
               Login
-            </button>
+            </Link>
           </div>
         </div>
       </div>
