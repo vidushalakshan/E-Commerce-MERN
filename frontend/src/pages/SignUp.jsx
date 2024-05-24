@@ -7,6 +7,8 @@ const SignUp = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
+    name: "",
+    confirmPassword:"",
   });
 
   // handle on change email and password
@@ -90,8 +92,8 @@ const SignUp = () => {
               <div className="flex p-2 bg-slate-100">
                 <input
                   onChange={handleOnChange}
-                  name="password"
-                  value={data.password}
+                  name="confirmPassword"
+                  value={data.confirmPassword}
                   type="password"
                   placeholder="Enter Password"
                   className="w-full h-full bg-transparent outline-none"
