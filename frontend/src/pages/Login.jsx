@@ -7,12 +7,12 @@ const Login = () => {
   return (
     <div id="login">
       <div className="container p-4 mx-auto">
-        <div className="max-w-md p-2 py-5 mx-auto bg-white">
+        <div className="max-w-sm p-2 py-5 mx-auto bg-white">
           <div className="w-20 h-20 mx-auto">
             <img src={loginIcon} alt="login-icon" />
           </div>
 
-          <form action="">
+          <form action="" className="mt-6">
             <div className="">
               <label htmlFor="">Email :</label>
               <div className="p-2 bg-slate-100">
