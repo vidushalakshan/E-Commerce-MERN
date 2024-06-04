@@ -9,7 +9,8 @@ const SignUp = () => {
     password: "",
     name: "",
     confirmPassword:"",
-  });
+    profilepic:"",
+  }); 
 
   // handle on change email and password
   const handleOnChange = (e) => {
@@ -104,7 +105,7 @@ const SignUp = () => {
 
             {/* login button */}
             <button className="block px-6 py-2 mx-auto mt-4 text-white transition-all bg-red-500 rounded hover:scale-110">
-              Login
+              Sign Up
             </button>
             {/* /> login button */}
           </form>
@@ -112,12 +113,12 @@ const SignUp = () => {
 
           {/* singup link */}
           <p className="my-5">
-            Don't have account ?{" "}
+            Already have account ?{" "}
             <Link
-              to={"/sign-up"}
+              to={"/login"}
               className="text-red-500 hover:text-red-600 hover:underline"
             >
-              Sign up
+              Login
             </Link>
           </p>
           {/* /> singup link */}
