@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginIcon } from "../assest";
 import { Link } from "react-router-dom";
+import imageTobase64 from "../helpers/image Tobase64";
 
 const SignUp = () => {
   // create state email and password
@@ -24,10 +25,16 @@ const SignUp = () => {
     });
   };
 
-  const hadnleUploadPic = (e) => {
+  const hadnleUploadPic = async (e) => {
     const file = e.target.files[0]
 
-    console.log('file', file);
+    const imagePic = await imageTobase64(file)
+    setData((preve)=> {
+     return {
+      ...preve,
+      profilepic : imagePic 
+     }
+    })
   }
 
   const hanldeSubmit = (e) => {
@@ -41,7 +48,7 @@ const SignUp = () => {
           {/* sign-up image icon  */}
           <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
             <div>
-              <img src={loginIcon} alt="login-icon" />
+              <img src={data.profilepic  || loginIcon} alt="login-icon" />
             </div>
             <form>
               <label>
@@ -70,6 +77,7 @@ const SignUp = () => {
                   name="name"
                   type="text"
                   placeholder="Enter your Name"
+                  required
                   className="w-full h-full bg-transparent outline-none"
                 />
               </div>
@@ -86,6 +94,7 @@ const SignUp = () => {
                   name="email"
                   type="email"
                   placeholder="Enter Email"
+                  required
                   className="w-full h-full bg-transparent outline-none"
                 />
               </div>
@@ -102,6 +111,7 @@ const SignUp = () => {
                   value={data.password}
                   type="password"
                   placeholder="Enter Password"
+                  required
                   className="w-full h-full bg-transparent outline-none"
                 />
               </div>
@@ -117,6 +127,7 @@ const SignUp = () => {
                   value={data.confirmPassword}
                   type="password"
                   placeholder="Enter Password"
+                  required
                   className="w-full h-full bg-transparent outline-none"
                 />
               </div>
