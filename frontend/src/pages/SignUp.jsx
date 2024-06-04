@@ -24,6 +24,12 @@ const SignUp = () => {
     });
   };
 
+  const hadnleUploadPic = (e) => {
+    const file = e.target.files[0]
+
+    console.log('file', file);
+  }
+
   const hanldeSubmit = (e) => {
     e.preventDefault();
   };
@@ -37,9 +43,14 @@ const SignUp = () => {
             <div>
               <img src={loginIcon} alt="login-icon" />
             </div>
-            <div className="text-xs bg-slate-200 cursor-pointer text-center absolute bottom-0 w-full bg-opacity-80 pb-4 pt-2">
-              Upload Photo
-            </div>
+            <form>
+              <label>
+                <div className="text-xs bg-slate-200 cursor-pointer text-center absolute bottom-0 w-full bg-opacity-80 pb-4 pt-2">
+                  Upload Photo
+                </div>
+                <input type="file" className="hidden" onChange={hadnleUploadPic}/>
+              </label>
+            </form>
           </div>
           {/* />sign-up image icon  */}
 
