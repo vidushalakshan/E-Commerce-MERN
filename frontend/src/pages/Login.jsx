@@ -40,7 +40,7 @@ const Login = () => {
           {/* />login image icon  */}
 
           {/* start form section */}
-          <form action="" className="mt-6" onSubmit={hanldeSubmit}>
+          <form action="" className="mt-6 flex flex-col gap-2" onSubmit={hanldeSubmit}>
             
             {/* email text section */}
             <div className="">

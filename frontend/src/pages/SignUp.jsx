@@ -8,9 +8,9 @@ const SignUp = () => {
     email: "",
     password: "",
     name: "",
-    confirmPassword:"",
-    profilepic:"",
-  }); 
+    confirmPassword: "",
+    profilepic: "",
+  });
 
   // handle on change email and password
   const handleOnChange = (e) => {
@@ -32,14 +32,23 @@ const SignUp = () => {
     <div id="login">
       <div className="container p-4 mx-auto">
         <div className="max-w-sm p-4 mx-auto bg-white">
-          {/* login image icon  */}
-          <div className="w-20 h-20 mx-auto">
-            <img src={loginIcon} alt="login-icon" />
+          {/* sign-up image icon  */}
+          <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
+            <div>
+              <img src={loginIcon} alt="login-icon" />
+            </div>
+            <div className="text-xs bg-slate-200 cursor-pointer text-center absolute bottom-0 w-full bg-opacity-80 pb-4 pt-2">
+              Upload Photo
+            </div>
           </div>
-          {/* />login image icon  */}
+          {/* />sign-up image icon  */}
 
           {/* start form section */}
-          <form action="" className="mt-6" onSubmit={hanldeSubmit}>
+          <form
+            action=""
+            className="mt-6 flex flex-col gap-2"
+            onSubmit={hanldeSubmit}
+          >
             {/* name text section */}
             <div className="">
               <label htmlFor="">Name :</label>
