@@ -3,8 +3,11 @@ import { loginIcon } from "../assest";
 import { Link } from "react-router-dom";
 import imageTobase64 from "../helpers/image Tobase64";
 import SummaryApi from "../../common";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
+
+  
   // create state email and password
   const [data, setData] = useState({
     email: "",
@@ -52,7 +55,14 @@ const SignUp = () => {
     
     const dataApi = await dataResponse.json()
 
-    console.log("data", dataApi);
+    if(dataApi.success){
+      toast.success(dataApi.message)
+    }
+    
+    if(dataApi.error) {
+      toast.error(dataApi.message)
+    }
+
     }else {
       console.log("Please check password and confirm password..")
     }
@@ -90,7 +100,7 @@ const SignUp = () => {
               <div className="p-2 bg-slate-100">
                 <input
                   onChange={handleOnChange}
-                  value={data.email}
+                  value={data.name}
                   name="name"
                   type="text"
                   placeholder="Enter your Name"
