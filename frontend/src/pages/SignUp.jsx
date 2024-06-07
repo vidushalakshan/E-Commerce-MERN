@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { loginIcon } from "../assest";
 import { Link } from "react-router-dom";
 import imageTobase64 from "../helpers/image Tobase64";
+import SummaryApi from "../../common";
 
 const SignUp = () => {
   // create state email and password
@@ -37,8 +38,24 @@ const SignUp = () => {
     })
   }
 
-  const hanldeSubmit = (e) => {
+  const hanldeSubmit = async (e) => {
     e.preventDefault();
+
+    if(data.password === data.confirmPassword){
+      const dataResponse = await fetch(SummaryApi.SignUp.url,{
+        method : SummaryApi.SignUp.method,
+        headers : {
+          "content-type" : "application/json"
+        },
+        body : JSON.stringify(data)
+    })
+    
+    const dataApi = await dataResponse.json()
+
+    console.log("data", dataApi);
+    }else {
+      console.log("Please check password and confirm password..")
+    }
   };
 
   return (
@@ -46,13 +63,13 @@ const SignUp = () => {
       <div className="container p-4 mx-auto">
         <div className="max-w-sm p-4 mx-auto bg-white">
           {/* sign-up image icon  */}
-          <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
+          <div className="relative w-20 h-20 mx-auto overflow-hidden rounded-full">
             <div>
               <img src={data.profilepic  || loginIcon} alt="login-icon" />
             </div>
             <form>
               <label>
-                <div className="text-xs bg-slate-200 cursor-pointer text-center absolute bottom-0 w-full bg-opacity-80 pb-4 pt-2">
+                <div className="absolute bottom-0 w-full pt-2 pb-4 text-xs text-center cursor-pointer bg-slate-200 bg-opacity-80">
                   Upload Photo
                 </div>
                 <input type="file" className="hidden" onChange={hadnleUploadPic}/>
@@ -64,7 +81,7 @@ const SignUp = () => {
           {/* start form section */}
           <form
             action=""
-            className="mt-6 flex flex-col gap-2"
+            className="flex flex-col gap-2 mt-6"
             onSubmit={hanldeSubmit}
           >
             {/* name text section */}
