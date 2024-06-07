@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { loginIcon } from "../assest";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import imageTobase64 from "../helpers/image Tobase64";
 import SummaryApi from "../../common";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
 
-  
+  // navigation section
+  const navigation = useNavigate()
+    // </> navigation section
+    
   // create state email and password
   const [data, setData] = useState({
     email: "",
@@ -57,6 +60,7 @@ const SignUp = () => {
 
     if(dataApi.success){
       toast.success(dataApi.message)
+      navigation("/login")
     }
     
     if(dataApi.error) {
