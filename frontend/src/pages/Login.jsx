@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { loginIcon } from "../assest";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 
@@ -10,6 +10,8 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   // handle on change email and password
   const handleOnChange = (e) => {
@@ -40,6 +42,7 @@ const Login = () => {
 
      if(dataApi.success){
         toast.success(dataApi.message)
+        navigate('/')
      }
 
      if(dataApi.error){
