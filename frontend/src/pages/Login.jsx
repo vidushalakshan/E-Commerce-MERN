@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { loginIcon } from "../assest";
 import { Link } from "react-router-dom";
+import SummaryApi from "../common";
+import { toast } from "react-toastify";
 
 const Login = () => {
   // create state email and password
@@ -22,8 +24,28 @@ const Login = () => {
   };
 
   
-  const hanldeSubmit = (e) => {
+  const hanldeSubmit = async (e) => {
      e.preventDefault()
+
+     const dataResponse = await fetch(SummaryApi.SignIn.url,{
+      method : SummaryApi.SignIn.method,
+      credentials : 'include',
+      headers : {
+        "content-type" : "application/json"
+      },
+      body : JSON.stringify(data)
+     }) 
+
+     const dataApi = await dataResponse.json()
+
+     if(dataApi.success){
+        toast.success(dataApi.message)
+     }
+
+     if(dataApi.error){
+      toast.error(dataApi.message)
+     }
+     
   }
 
   console.log('data login', data);
@@ -40,7 +62,7 @@ const Login = () => {
           {/* />login image icon  */}
 
           {/* start form section */}
-          <form action="" className="mt-6 flex flex-col gap-2" onSubmit={hanldeSubmit}>
+          <form action="" className="flex flex-col gap-2 mt-6" onSubmit={hanldeSubmit}>
             
             {/* email text section */}
             <div className="">

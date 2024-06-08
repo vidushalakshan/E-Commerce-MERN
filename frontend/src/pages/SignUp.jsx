@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { loginIcon } from "../assest";
 import { Link, useNavigate } from "react-router-dom";
 import imageTobase64 from "../helpers/image Tobase64";
-import SummaryApi from "../../common";
+import SummaryApi from "../common";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
