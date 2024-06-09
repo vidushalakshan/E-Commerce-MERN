@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { loginIcon } from "../assest";
 import { Link, useNavigate } from "react-router-dom";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
+import Context from "../context";
 
 const Login = () => {
   // create state email and password
@@ -12,6 +13,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
+  const { fetchUserDetails } = useContext(Context)
 
   // handle on change email and password
   const handleOnChange = (e) => {
@@ -43,6 +45,7 @@ const Login = () => {
      if(dataApi.success){
         toast.success(dataApi.message)
         navigate('/')
+        fetchUserDetails()
      }
 
      if(dataApi.error){
