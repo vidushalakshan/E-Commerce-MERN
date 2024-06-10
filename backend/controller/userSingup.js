@@ -3,7 +3,7 @@ var bcrypt = require("bcryptjs");
 
 async function userSignupController(req, res) {
   try {
-    const { email, password, name } = req.body;
+    const { email, password, name,  profilepic } = req.body;
 
     const user = await userModel.findOne({email})
 

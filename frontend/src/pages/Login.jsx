@@ -13,7 +13,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
-  const { fetchUserDetails } = useContext(Context)
+  const { fetchUserDetails } = useContext(Context);
 
   // handle on change email and password
   const handleOnChange = (e) => {
@@ -27,40 +27,37 @@ const Login = () => {
     });
   };
 
-  
   const hanldeSubmit = async (e) => {
-     e.preventDefault()
+    e.preventDefault();
 
-     const dataResponse = await fetch(SummaryApi.SignIn.url,{
-      method : SummaryApi.SignIn.method,
-      credentials : 'include',
-      headers : {
-        "content-type" : "application/json"
+    const dataResponse = await fetch(SummaryApi.SignIn.url, {
+      method: SummaryApi.SignIn.method,
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
       },
-      body : JSON.stringify(data)
-     }) 
+      body: JSON.stringify(data),
+    });
 
-     const dataApi = await dataResponse.json()
+    const dataApi = await dataResponse.json();
 
-     if(dataApi.success){
-        toast.success(dataApi.message)
-        navigate('/')
-        fetchUserDetails()
-     }
+    if (dataApi.success) {
+      toast.success(dataApi.message);
+      navigate("/");
+      await fetchUserDetails();
+    }
 
-     if(dataApi.error){
-      toast.error(dataApi.message)
-     }
-     
-  }
+    if (dataApi.error) {
+      toast.error(dataApi.message);
+    }
+  };
 
-  console.log('data login', data);
+  console.log("data login", data);
 
   return (
     <div id="login">
       <div className="container p-4 mx-auto">
         <div className="max-w-sm p-4 mx-auto bg-white">
-          
           {/* login image icon  */}
           <div className="w-20 h-20 mx-auto">
             <img src={loginIcon} alt="login-icon" />
@@ -68,8 +65,11 @@ const Login = () => {
           {/* />login image icon  */}
 
           {/* start form section */}
-          <form action="" className="flex flex-col gap-2 mt-6" onSubmit={hanldeSubmit}>
-            
+          <form
+            action=""
+            className="flex flex-col gap-2 mt-6"
+            onSubmit={hanldeSubmit}
+          >
             {/* email text section */}
             <div className="">
               <label htmlFor="">Email :</label>
