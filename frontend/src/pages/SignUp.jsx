@@ -32,17 +32,32 @@ const SignUp = () => {
     });
   };
 
-  const hadnleUploadPic = async (e) => {
-    const file = e.target.files[0]
+  // const hadnleUploadPic = async (e) => {
+  //   const file = e.target.files[0]
 
-    const imagePic = await imageTobase64(file)
-    setData((preve)=> {
-     return {
-      ...preve,
-      profilepic : imagePic 
-     }
-    })
-  }
+  //   const imagePic = await imageTobase64(file)
+  //   setData((preve)=> {
+  //    return {
+  //     ...preve,
+  //     profilepic : imagePic 
+  //    }
+  //   })
+  // }
+
+  const hadnleUploadPic = async (e) => {
+    const file = e.target.files[0];
+  
+    if (file.size > 5 * 1024 * 1024) { // 5MB limit
+      toast.error("File size should be less than 5MB");
+      return;
+    }
+  
+    const imagePic = await imageTobase64(file);
+    setData((prev) => ({
+      ...prev,
+      profilepic: imagePic,
+    }));
+  };
 
   const hanldeSubmit = async (e) => {
     e.preventDefault();

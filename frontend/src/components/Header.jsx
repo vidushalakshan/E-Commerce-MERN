@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { clearUserDetails } from "../store/userSlice";
 
 const Header = () => {
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector(state => state?.user?.user);
   const dispatch = useDispatch();
   const [menuDisplay, setMenuDisplay] = useState(false);
 

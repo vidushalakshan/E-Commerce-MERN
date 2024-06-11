@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const AdminPanel = () => {
 
@@ -36,7 +36,7 @@ const AdminPanel = () => {
         </div>
       </aside>
             
-      <main>main</main>
+      <main><Outlet/></main>
     </div>
   );
 };
