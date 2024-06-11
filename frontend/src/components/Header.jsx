@@ -70,7 +70,7 @@ const Header = () => {
                 <nav>
                   <Link
                     to={"admin-panel"}
-                    className="p-2 whitespace-nowrap hover:bg-slate-100"
+                    className="p-2 whitespace-nowrap hover:bg-slate-100" onClick={() => setMenuDisplay(preve => !preve)}
                   >
                     Admin Panel
                   </Link>
