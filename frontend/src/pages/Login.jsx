@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Context from "../context";
 
 const Login = () => {
-  // create state email and password
+  // create state emai l and password
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -44,7 +44,7 @@ const Login = () => {
     if (dataApi.success) {
       toast.success(dataApi.message);
       navigate("/");
-      await fetchUserDetails();
+      fetchUserDetails();
     }
 
     if (dataApi.error) {
