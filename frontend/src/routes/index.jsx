@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import ForgotPassword from "../pages/ForgotPassword";
 import SignUp from "../pages/SignUp";
+import AdminPanel from "../pages/AdminPanel";
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/fogot-password" element={<ForgotPassword />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/admin-panel" element={<AdminPanel/>}></Route>
       </Route>
     </Routes>
   );
